@@ -14,11 +14,14 @@ $("ul").on("click", "span", function(event){
 // Add element
 
 $('.fa-plus').click(function(event){
-	var item = $("input[type='text']").val();
-	$("input[type='text']").val("");
-	$("ul").append("<li><span><i class='fa fa-trash' aria-hidden='true'></i></span> " + item +"</li>");
+	if ($("input[type='text']").val()==="") {alert("You didn't type anything..");}
+	else {
+		var item = $("input[type='text']").val();
+		$("input[type='text']").val("");
+		$("ul").append("<li><span><i class='fa fa-trash' aria-hidden='true'></i></span> " + item +"</li>");
+		event.stopPropagation();
+	}
 	
-	event.stopPropagation();
 })
 
 $("input[type='text']").keypress(function(event){
